@@ -1,0 +1,60 @@
+<div class="container-fluid">
+    <div class="row justify-content-center align-items-center" style="height: 80vh;">
+        <div class="col-md-4 col-lg-4 col-sm-4">
+
+        </div>
+        <div class="col-md-4 col-lg-4 col-sm-4">
+            <div class="card">
+                <div class="card-header fs-1 border-0 text-center text-primary bg-white">
+                    <h1>Sign Up</h1>
+                </div>
+                <div class="card-body">
+                    <form  [formGroup]="signUpForm" class="mx-3">
+                        <div class="form-group mb-3">
+                            <label for="firstName">First Name <span class="text-danger">*</span> </label>
+                            <input type="text" class="form-control" formControlName="firstName" [class.is-invalid]="!signUpForm.controls['firstName'].valid && signUpForm.controls['firstName'].touched">
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="lastName">LastName <span class="text-danger">*</span> </label>
+                            <input type="text" class="form-control" formControlName="lastName" [class.is-invalid]="!signUpForm.controls['lastName'].valid && signUpForm.controls['lastName'].touched">
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="email">Email <span class="text-danger">*</span> </label>
+                            <input type="email" class="form-control" formControlName="email" [class.is-invalid]="!signUpForm.controls['email'].valid && signUpForm.controls['email'].touched">
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="address">Address <span class="text-danger">*</span> </label>
+                            <input type="text" class="form-control" formControlName="address" [class.is-invalid]="!signUpForm.controls['address'].valid && signUpForm.controls['address'].touched">
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="city">City <span class="text-danger">*</span> </label>
+                            <input type="text" class="form-control" formControlName="city" [class.is-invalid]="!signUpForm.controls['city'].valid && signUpForm.controls['city'].touched">
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="password">Password<span class="text-danger">*</span> </label>
+                            <input type="password" class="form-control" formControlName="password" [class.is-invalid]="!signUpForm.controls['password'].valid  && signUpForm.controls['password'].touched">
+                        </div>
+                        <div class="text-danger" *ngIf="signUpForm.invalid">
+                            <small>
+                                {{signUpError}}
+                            </small>
+                        </div>
+                        <div class="text-danger" *ngIf="alreadyAdded">
+                            <small>
+                                {{alreadyAdded}}
+                            </small>
+                        </div>
+                        <div class="form-group text-center mb-3">
+                            <button class="btn btn-primary" (click)="signUp()">Submit</button>
+                        </div>
+                        <div class="text-center">Already have a account? <a class="href pointer"
+                                [routerLink]="['/login']" >Login</a></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 col-lg-4 col-sm-4">
+
+        </div>
+    </div>
+</div>

@@ -7,4 +7,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'BlueScope';
+  constructor(){
+    document.body.style.backgroundColor = '#0E6EFD';
+  }
 }

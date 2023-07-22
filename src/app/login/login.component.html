@@ -1,0 +1,50 @@
+<div class="container-fluid">
+    <div class="row justify-content-center align-items-center" style="height: 80vh;">
+        <div class="col-md-4 col-lg-4 col-sm-4">
+
+        </div>
+        <div class="col-md-4 col-lg-4 col-sm-4">
+            <div class="card">
+                <div class="card-header fs-1 border-0 text-center text-primary bg-white">
+                    <h1>Login</h1>
+                </div>
+                <div class="card-body">
+                    <form  [formGroup]="loginForm" class="mx-3">
+                        <div class="form-group mb-2">
+                            <label for="email">Email <span class="text-danger">*</span> </label>
+                            <input type="email" class="form-control" formControlName="email" [class.is-invalid]="!loginForm.controls['email'].valid && loginForm.controls['email'].touched">
+                        </div>
+                        <div class="form-group mb-2">
+                            <label for="password">Password<span class="text-danger">*</span> </label>
+                            <input type="password" class="form-control" formControlName="password" [class.is-invalid]="!loginForm.controls['password'].valid  && loginForm.controls['password'].touched">
+                        </div>
+                        <div class="text-danger" *ngIf="loginForm.invalid">
+                            <small>
+                            {{loginError}}
+                            </small>
+                        </div>
+                        <div class="text-danger">
+                            <small>
+                            {{signUpError}}
+                            </small>
+                        </div>
+                        <div class="text-danger">
+                            <small>
+                            {{noData}}
+                            </small>
+                        </div>
+                        <div class="form-group text-center mb-3">
+                            <button class="btn btn-primary" (click)="login()" >Submit</button>
+                        </div>
+                    </form>
+                    <div class="text-center">Don't have a account? <a class="href pointer"
+                            [routerLink]="['/signup']" >Sign Up</a></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 col-lg-4 col-sm-4">
+
+        </div>
+    </div>
+
+</div>

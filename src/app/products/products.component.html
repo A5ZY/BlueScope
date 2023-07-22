@@ -1,0 +1,68 @@
+<div class="mx-5">
+    <div class="d-flex justify-content-end">
+       <button class="btn btn-warning" (click)="openMap()">Open Map</button>
+    </div>
+    <h1 class="text-center text-white">Products List</h1>
+    <div class="row mt-3">
+        <div class="col-sm-3 col-lg-3 col-sm-3" *ngFor="let product of products">
+            <div class="card mb-3" (click)="viewProduct(product)">
+                <div class="card-body">
+                    <div class="text-center">
+                        <img [src]="product.image" width="200" height="300" style="object-fit: contain;" alt="">
+                    </div>
+                    <div class="mx-2">
+                        <div>
+                           <span class="fw-bold"> Name: </span>{{product.name}}
+                        </div>
+                      <div>
+                        <span class="fw-bold"> Price: </span> {{product.price | currency: 'INR'}}
+                      </div>
+                      <div>
+                        <span class="fw-bold"> Description: </span> {{product.description}}
+                      </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+  <div class="modal fade" id="viewProductModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-3" id="exampleModalLabel">{{viewedProduct?.name}}</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="text-center">
+            <img [src]="viewedProduct?.image" width="200" height="300" style="object-fit: contain;" alt="">
+          </div>
+          <div class="text-center">
+            {{viewedProduct?.longDesc}}
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+  <!-- Modal -->
+  <div class="modal fade" id="viewMap" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Google Map</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <app-map></app-map>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>  
+      </div>
+    </div>
+  </div>
